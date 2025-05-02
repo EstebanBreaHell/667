@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Le chat qui rigole</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(-45deg, #ff6b6b, #f06595, #845ef7, #5c7cfa);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    img {
+      max-width: 70vw;
+      max-height: 70vh;
+      border-radius: 1rem;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <img src="/static/chat-qui-rigole.png" alt="Le chat qui rigole" />
+</body>
+</html>
