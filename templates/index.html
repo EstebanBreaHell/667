@@ -1,61 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Le Chat Qui Rigole</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    html, body {
+        body {
+    background: inherit;
+    animation: inherit;
+  }
+  .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+    /* 🎨 Ton fond animé */
+    html {
+      --s: 100px; /* control the size */
+      --c1: #2a0e35;
+      --c2: #1a1a1a;
+
+      --_s: calc(2*var(--s)) calc(2*var(--s));
+      --_g: var(--_s) conic-gradient(at 40% 40%,#0000 75%,var(--c1) 0);
+      --_p: var(--_s) conic-gradient(at 20% 20%,#0000 75%,var(--c2) 0);
+      background:
+        calc( .9*var(--s)) calc( .9*var(--s))/var(--_p),
+        calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
+        calc( .7*var(--s)) calc( .7*var(--s))/var(--_g),
+        calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
+        conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0) 
+         0 0/var(--s) var(--s);
+      animation: m 3s infinite;
+    }
+
+    @keyframes m {
+      0% {
+       background-position: 
+        calc( .9*var(--s)) calc( .9*var(--s)),
+        calc(-.1*var(--s)) calc(-.1*var(--s)),
+        calc( .7*var(--s)) calc( .7*var(--s)),
+        calc(-.3*var(--s)) calc(-.3*var(--s)),0 0
+      }
+      25% {
+       background-position: 
+        calc(1.9*var(--s)) calc( .9*var(--s)),
+        calc(-1.1*var(--s)) calc(-.1*var(--s)),
+        calc(1.7*var(--s)) calc( .7*var(--s)),
+        calc(-1.3*var(--s)) calc(-.3*var(--s)),0 0
+      }
+      50% {
+       background-position: 
+        calc(1.9*var(--s)) calc(-.1*var(--s)),
+        calc(-1.1*var(--s)) calc( .9*var(--s)),
+        calc(1.7*var(--s)) calc(-.3*var(--s)),
+        calc(-1.3*var(--s)) calc( .7*var(--s)),0 0
+      }
+      75% {
+       background-position: 
+        calc(2.9*var(--s)) calc(-.1*var(--s)),
+        calc(-2.1*var(--s)) calc( .9*var(--s)),
+        calc(2.7*var(--s)) calc(-.3*var(--s)),
+        calc(-2.3*var(--s)) calc( .7*var(--s)),0 0
+      }
+      100% {
+       background-position: 
+        calc(2.9*var(--s)) calc(-1.1*var(--s)),
+        calc(-2.1*var(--s)) calc(1.9*var(--s)),
+        calc(2.7*var(--s)) calc(-1.3*var(--s)),
+        calc(-2.3*var(--s)) calc(1.7*var(--s)),0 0
+      }
+    }
+
+    body {
       margin: 0;
-      padding: 0;
       height: 100%;
-      overflow: hidden;
-      background: black;
-      font-family: sans-serif;
-    }
-
-    .stars {
-      width: 100%;
-      height: 100%;
-      background: black url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/starfield.jpg") repeat;
-      background-size: cover;
-      animation: moveStars 100s linear infinite;
-      position: absolute;
-      top: 0;
-      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
       z-index: 0;
-      opacity: 0.4;
+      overflow: hidden;
     }
 
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: 10000px 0; }
-    }
-
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.5);
       z-index: 1;
     }
 
     img {
-      max-width: 50vw;
-      max-height: 50vh;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+      max-width: 500px;
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      z-index: 1;
       transition: transform 0.3s ease;
     }
 
     img:hover {
+      transform: scale(1.03);
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #888;
+      border-radius: 6px;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(0,0,0,0.8);
+      border-color: white;
       transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="centered">
-    <img src="/static/chat-qui-rigole.gif" alt="Le Chat Qui Rigole" />
+  <div class="center">
+    <h1>BAHAHAHAHAHAHAHA</h1>
+    <img src="chat-qui-rigole.gif" alt="Le Chat Qui Rigole" />
+    <button>My secret</button>
+    <script>
+      //redirect vers un rick roll
+      document.querySelector('button').addEventListener('click', function() {
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+      });
+    </script>
   </div>
 </body>
 </html>
