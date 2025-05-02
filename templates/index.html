@@ -2,35 +2,60 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Le chat qui rigole</title>
+  <title>Le Chat Qui Rigole</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: linear-gradient(-45deg, #ff6b6b, #f06595, #845ef7, #5c7cfa);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+      background: black;
+      font-family: sans-serif;
     }
 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: black url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/starfield.jpg") repeat;
+      background-size: cover;
+      animation: moveStars 100s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 0; }
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     img {
-      max-width: 70vw;
-      max-height: 70vh;
-      border-radius: 1rem;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      max-width: 50vw;
+      max-height: 50vh;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <img src="/static/chat-qui-rigole.gif" alt="Le chat qui rigole" />
+  <div class="stars"></div>
+  <div class="centered">
+    <img src="/static/chat-qui-rigole.gif" alt="Le Chat Qui Rigole" />
+  </div>
 </body>
 </html>
