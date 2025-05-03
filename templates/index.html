@@ -128,16 +128,14 @@
     <img src="/static/chat-qui-rigole.gif" alt="Le Chat Qui Rigole">
     <button>Cheats</button>
     <script>
-      // Essayez de démarrer la musique automatiquement
       const audio = document.getElementById('background-music');
-      document.addEventListener('DOMContentLoaded', () => {
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            console.warn('Autoplay bloqué par le navigateur. L’utilisateur doit interagir avec la page pour démarrer la musique.');
-          });
-        }
-      });
+    
+      function enableAudio() {
+        audio.play();
+        document.removeEventListener('click', enableAudio);
+      }
+    
+      document.addEventListener('click', enableAudio);
     </script>
     <script>
       document.querySelector('button').addEventListener('click', function() {
