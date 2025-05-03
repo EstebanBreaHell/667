@@ -119,12 +119,26 @@
   </style>
 </head>
 <body>
-  
+  <audio id="background-music" loop>
+    <source src="/static/sound.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
   <div class="container">
     <h1>BHAHAHAHAHAHAHAH</h1>
-    <h1>zsdeqszfsedgrdhtgjku</h1>
     <img src="/static/chat-qui-rigole.gif" alt="Le Chat Qui Rigole">
     <button>Cheats</button>
+    <script>
+      // Essayez de démarrer la musique automatiquement
+      const audio = document.getElementById('background-music');
+      document.addEventListener('DOMContentLoaded', () => {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.warn('Autoplay bloqué par le navigateur. L’utilisateur doit interagir avec la page pour démarrer la musique.');
+          });
+        }
+      });
+    </script>
     <script>
       document.querySelector('button').addEventListener('click', function() {
         window.location.href = 'https://youtube.com/watch?v=dQw4w9WgXcQ';
